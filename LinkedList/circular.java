@@ -23,13 +23,13 @@ class CircularLinkedList {
         // empty list
         if (head == null) {
             head = tail = newNode;
-            tail.next = head; // circular link
+            tail.next = head;
             return;
         }
 
         newNode.next = head;
         head = newNode;
-        tail.next = head; // maintain circular link
+        tail.next = head;
     }
 
     // Add at end
@@ -46,7 +46,7 @@ class CircularLinkedList {
 
         tail.next = newNode;
         tail = newNode;
-        tail.next = head; // circular link
+        tail.next = head;
     }
 
     // Add at given position (0-based index)
@@ -79,7 +79,35 @@ class CircularLinkedList {
         temp.next = newNode;
     }
 
-    // Print Circular Linked List
+    // Delete last node
+    public void deleteLast() {
+
+        // empty list
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        // only one node
+        if (head == tail) {
+            head = tail = null;
+            size--;
+            return;
+        }
+
+        Node temp = head;
+
+        // go to node before tail
+        while (temp.next != tail) {
+            temp = temp.next;
+        }
+
+        temp.next = head;
+        tail = temp;
+        size--;
+    }
+
+    // Print circular linked list
     public void print() {
         if (head == null) {
             System.out.println("CLL is empty");
@@ -111,5 +139,9 @@ class CircularLinkedList {
         cll.addAtPosition(2, 99);
         cll.print();
         // 20 -> 10 -> 99 -> 30 -> 40 -> (back to head)
+
+        cll.deleteLast();
+        cll.print();
+        // 20 -> 10 -> 99 -> 30 -> (back to head)
     }
 }
