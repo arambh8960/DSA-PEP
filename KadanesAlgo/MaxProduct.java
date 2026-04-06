@@ -13,6 +13,6 @@ class Solution {
             
             ans=Math.max(Math.max(ben,bep),ans);
         }
-        return ans;
+        retur ans;
     }
 }
