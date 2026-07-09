@@ -25,7 +25,7 @@ public:
                 t=1;
             }
         }
-        if(t==1){
+        if(t==1){d
             count=count+1;
         }
         return count;
