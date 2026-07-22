@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    bool armstrongNumber(int n) {
+        // code here
+        int a=n;
+        int ans=0;
+        while(n){
+            int rem=n%10;
+            n=n/10;
+            int b=rem*rem*rem;
+            ans=ans+b;
+        }
+        if(ans==a)return true;
+        return false;
+    }
+};
