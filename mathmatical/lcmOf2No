@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int lcm(int a, int b) {
+        // code here
+        int ans=a*b;
+        while(a!=0&&b!=0){
+            if(a>b){
+                a=a%b;
+            }else{
+                b=b%a;
+            }
+        }
+        int res;
+        if(a!=0){
+            res=a;
+        }else{
+            res=b;
+        }
+        return ans/res;
+        
+    }
+};
