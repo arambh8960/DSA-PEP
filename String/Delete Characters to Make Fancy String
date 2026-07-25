@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string makeFancyString(string s) {
+        string ss="";
+        
+        for(int i=0;i<s.size();i++){
+            if(ss.size()>=2&&ss.back()==s[i] &&ss[ss.size()-2]==s[i]){
+                continue;
+
+            }
+            ss+=s[i];
+        }
+        return ss;
+    }
+};
