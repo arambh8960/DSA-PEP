@@ -1,0 +1,35 @@
+class Solution {
+    public boolean isEqual(int[] m1,int[] m2){
+        for(int i=0;i<26;i++){
+            if(m1[i]!=m2[i])return false;
+        }
+        return true;
+    }
+    public boolean checkInclusion(String s1, String s2) {
+        int[] m1=new int[26];
+        int[] m2=new int[26];
+        int m=s1.length();
+        int n=s2.length();
+        for(int i=0;i<m;i++){
+            m1[s1.charAt(i)-'a']++;
+        }
+        if(m>n)return false;
+        int i=0;
+        int j=0;
+        
+        while(j<n){
+            m2[s2.charAt(j)-'a']++;
+            if(j-i+1>m){
+                m2[s2.charAt(i)-'a']--;
+                i++;
+
+            }
+            if(j-i+1==m){
+                if(isEqual(m1,m2))return true;
+            }
+    j++;
+
+        }
+        return false;
+    }
+}
