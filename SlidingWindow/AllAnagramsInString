@@ -1,0 +1,36 @@
+class Solution {
+    boolean isEqual(int[] m1,int[] m2){
+        for(int i=0;i<26;i++){
+            if(m1[i]!=m2[i])return false;
+        }
+        return true;
+    }
+    public List<Integer> findAnagrams(String s, String p) {
+        int[] m1=new int[26];
+        int[] m2=new int[26];
+        int m=s.length();
+        int n=p.length();
+       
+        List<Integer> l=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            m2[p.charAt(i)-'a']++;
+        }
+        int i=0;
+        int j=0;
+        while(j<m){
+            m1[s.charAt(j)-'a']++;
+             if(j-i+1>n){
+                m1[s.charAt(i)-'a']--;
+                i++;
+            }
+            if(j-i+1==n){
+                if(isEqual(m1,m2))l.add(i);
+            
+            }
+           
+            j++;
+        }
+        return l;
+
+    }
+}
