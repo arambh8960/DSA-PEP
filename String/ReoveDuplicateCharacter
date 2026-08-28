@@ -1,0 +1,18 @@
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+       String ans="";
+       HashSet<Character> set=new HashSet<>();
+       for(int i=0;i<s.length();i++){
+        Character ch=s.charAt(i);
+        if(!set.contains(ch)){
+            ans+=ch;
+            set.add(ch);
+        }
+
+       }
+       System.out.println(ans);
+    }
+}
