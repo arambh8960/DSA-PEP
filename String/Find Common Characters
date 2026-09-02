@@ -1,0 +1,28 @@
+class Solution {
+    public void frequency(String s,int[] f){
+        for(int i=0;i<s.length();i++){
+            f[s.charAt(i)-'a']++;
+        }
+    }
+    public List<String> commonChars(String[] words) {
+        List<String> ans=new ArrayList<>();
+        int n=words.length;
+        int[] freq=new int[26];
+        frequency(words[0],freq);
+        for(int i=1;i<words.length;i++){
+            int[] temp=new int[26];
+            frequency(words[i],temp);
+            for(int j=0;j<26;j++){
+                freq[j]=Math.min(temp[j],freq[j]);
+            }
+            
+        }
+        for(int i=0;i<26;i++){
+            while(freq[i]>0){
+                ans.add(""+(char)(i+'a'));
+                freq[i]--;
+            }
+        }
+        return ans;
+    }
+}
