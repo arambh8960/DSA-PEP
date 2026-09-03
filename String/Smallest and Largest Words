@@ -1,0 +1,21 @@
+class Solution {
+    
+    public ArrayList<String> smallerAndLarge(String s) {
+        // code here
+        ArrayList<String> ans=new ArrayList<>();
+        String[] words= s.split("\\s+");
+        String small=words[0];
+        String lar=words[0];
+        for(int i=1;i<words.length;i++){
+            if(words[i].length()<small.length()){
+                small=words[i];
+            }
+            if(words[i].length()>=lar.length()){
+                lar=words[i];
+            }
+        }
+        ans.add(small);
+        ans.add(lar);
+        return ans;
+    }
+}
